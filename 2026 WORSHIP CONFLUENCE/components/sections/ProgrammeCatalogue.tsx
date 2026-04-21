@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { programmeDays } from "@/data/programmeSongs";
+import { programmeDays } from "../../data/programmeSongs";
 
 export default function ProgrammeCatalogue() {
   const [currentDay, setCurrentDay] = useState(0);

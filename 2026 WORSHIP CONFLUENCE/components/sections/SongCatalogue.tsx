@@ -1,8 +1,8 @@
 "use client";
 
 import { motion } from "framer-motion";
-import SongCard from "@/components/ui/SongCard";
-import { allChoirSongs, allIndividualSongs } from "@/data/programmeSongs";
+import { allChoirSongs, allIndividualSongs } from "../../data/programmeSongs";
+import SongCard from "../ui/SongCard";
 
 export default function SongCatalogue() {
   return (

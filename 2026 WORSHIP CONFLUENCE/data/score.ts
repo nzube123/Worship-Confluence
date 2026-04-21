@@ -1,4 +1,4 @@
-import type { Score } from "@/data/types";
+import { Score } from "./types";
 
 export const scoreCategories = ["vocalQuality", "stagePresence", "arrangement", "audienceImpact"] as const;
 

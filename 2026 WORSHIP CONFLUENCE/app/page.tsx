@@ -6,18 +6,18 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 import { useRouter } from "next/navigation";
 import { FaHandsHelping, FaMicrophone, FaUsers, FaMapMarkerAlt, FaFacebook, FaYoutube, FaInstagram } from "react-icons/fa";
-import Navbar from "@/components/Navbar";
-import VideoCard from "@/components/VideoCard";
-import SongCatalogue from "@/components/sections/SongCatalogue";
-import ProgrammeCatalogue from "@/components/sections/ProgrammeCatalogue";
 import { speakerData } from "./data/speakers";
 import { agenda } from "./data/agenda";
 import { mediaVideos } from "./data/videos";
 import { RegisterFormData } from "./types";
-import { validateName, validateEmail, validatePhone } from "@/app/lib/validation";
+import Navbar from "../components/Navbar";
+import SongCatalogue from "../components/sections/SongCatalogue";
+import ProgrammeCatalogue from "../components/sections/ProgrammeCatalogue";
+import VideoCard from "../components/VideoCard";
+import { validateEmail, validateName, validatePhone } from "./lib/validation";
 
 // Lazy load heavy components
-const TestimonialCarousel = dynamic(() => import("@/components/TestimonialCarousel"), {
+const TestimonialCarousel = dynamic(() => import("../components/TestimonialCarousel"), {
   loading: () => <div className="h-64 bg-black/20 rounded-lg animate-pulse" />,
 });
 

@@ -1,8 +1,8 @@
 "use client";
 
 import { motion } from "framer-motion";
-import type { Song } from "@/data/types";
-import { formatYoutubeUrl } from "@/data/youtube";
+import type { Song } from "../../data/types";
+import { formatYoutubeUrl } from "../../data/youtube";
 
 interface SongCardProps {
   song: Song;

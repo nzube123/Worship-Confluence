@@ -1,4 +1,4 @@
-import type { Song } from "@/data/types";
+import { Song } from "./types";
 
 const artistCorrections: Record<string, string> = {
   "Cece Winnans": "CeCe Winans",

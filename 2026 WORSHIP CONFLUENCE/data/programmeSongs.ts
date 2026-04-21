@@ -1,5 +1,8 @@
-import type { ProgrammeDayRaw, ProgrammeDay, Song } from "@/data/types";
-import { parseSongString } from "@/data/youtube";
+// import type { ProgrammeDayRaw, ProgrammeDay, Song } from "@/data/types";
+// import { parseSongString } from "@/data/youtube";
+
+import { ProgrammeDayRaw, ProgrammeDay, Song } from "./types";
+import { parseSongString } from "./youtube";
 
 const programDaysRaw: ProgrammeDayRaw[] = [
   {
@@ -148,5 +151,9 @@ export const programmeDays: ProgrammeDay[] = programDaysRaw.map((day) => ({
 export const programmeDaysStructured = programmeDays;
 export const programmeDaysRaw = programDaysRaw;
 
-export const allChoirSongs: Song[] = uniqueSongs(programmeDays.flatMap((day) => day.choirSongs));
-export const allIndividualSongs: Song[] = uniqueSongs(programmeDays.flatMap((day) => day.individualSongs));
+export const allChoirSongs: Song[] = uniqueSongs(
+  programmeDays.flatMap((day) => day.choirSongs),
+);
+export const allIndividualSongs: Song[] = uniqueSongs(
+  programmeDays.flatMap((day) => day.individualSongs),
+);

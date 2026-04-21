@@ -2,15 +2,16 @@
 
 import { useMemo, useState } from "react";
 import { motion } from "framer-motion";
-import SongCard from "@/components/ui/SongCard";
-import YouTubePlayer from "@/components/ui/YouTubePlayer";
-import { allChoirSongs, allIndividualSongs } from "@/data/programmeSongs";
-import type { Song } from "@/data/types";
+import { allChoirSongs, allIndividualSongs } from "../../data/programmeSongs";
+import SongCard from "../../components/ui/SongCard";
+import { Song } from "../../data/types";
+import YouTubePlayer from "../../components/ui/YouTubePlayer";
 
 export default function SelectSongPage() {
   const [selectedSongId, setSelectedSongId] = useState<string>("");
   const [confirmationMessage, setConfirmationMessage] = useState<string>("");
 
+  // Keeping your memo exactly as requested
   const selectedSong = useMemo(
     () => [...allChoirSongs, ...allIndividualSongs].find((song) => song.id === selectedSongId),
     [selectedSongId]
@@ -114,7 +115,6 @@ export default function SelectSongPage() {
             </div>
           </div>
         )}
-        </div>
       </section>
     </main>
   );
