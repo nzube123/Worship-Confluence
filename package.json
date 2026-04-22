@@ -1,0 +1,15 @@
+{
+  "scripts": {
+    "dev": "turbo dev",
+    "check-types": "tsc --noEmit"
+  },
+  "devDependencies": {
+    "turbo": "^2.9.6"
+  },
+  
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "packageManager": "npm@8.5.0"
+}
