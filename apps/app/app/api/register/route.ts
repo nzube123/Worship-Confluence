@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { RegisterFormData, ApiResponse } from '@/app/types';
-import { validateName, validateEmail, validatePhone, isHoneypotEmpty } from '@/app/lib/validation';
+import { RegisterFormData, ApiResponse } from '../../types';
+import { validateName, validateEmail, validatePhone, isHoneypotEmpty } from '../../lib/validation';
 
 export async function POST(request: NextRequest): Promise<NextResponse<ApiResponse>> {
   try {
@@ -26,28 +26,6 @@ export async function POST(request: NextRequest): Promise<NextResponse<ApiRespon
     // Honeypot spam protection
     if (!isHoneypotEmpty(botField)) {
       return NextResponse.json({ success: false, message: 'Spam detected. Submission rejected.' }, { status: 400 });
-    }
-
-    // Optional CAPTCHA verification if server-side secret is configured
-    const recaptchaSecret = process.env.RECAPTCHA_SECRET_KEY;
-    if (recaptchaSecret) {
-      if (!captchaToken) {
-        return NextResponse.json({ success: false, message: 'CAPTCHA verification missing.' }, { status: 400 });
-      }
-
-      const recaptchaResponse = await fetch('https://www.google.com/recaptcha/api/siteverify', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/x-www-form-urlencoded',
-        },
-        body: new URLSearchParams({ secret: recaptchaSecret, response: captchaToken }),
-      });
-
-      const recaptchaJson = await recaptchaResponse.json();
-      if (!recaptchaJson.success) {
-        console.error('reCAPTCHA verification failed', recaptchaJson);
-        return NextResponse.json({ success: false, message: 'CAPTCHA verification failed. Please try again.' }, { status: 400 });
-      }
     }
 
     // Submit to Google Forms

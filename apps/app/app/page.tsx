@@ -15,6 +15,7 @@ import SongCatalogue from "../components/sections/SongCatalogue";
 import ProgrammeCatalogue from "../components/sections/ProgrammeCatalogue";
 import VideoCard from "../components/VideoCard";
 import { validateEmail, validateName, validatePhone } from "./lib/validation";
+import RegistrationForm from "../components/ui/registrationForm";
 
 // Lazy load heavy components
 const TestimonialCarousel = dynamic(() => import("../components/TestimonialCarousel"), {
@@ -64,67 +65,68 @@ export default function HomePage() {
 
   const router = useRouter();
 
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setIsLoading(true);
-    setMessage(null);
+  // const handleSubmit = async (e: React.FormEvent) => {
+  //   e.preventDefault();
+  //   setIsLoading(true);
+  //   setMessage(null);
 
-    const nameValidation = validateName(formData.name);
-    if (!nameValidation.valid) {
-      setMessage({ type: "error", text: nameValidation.message ?? "Name is required." });
-      setIsLoading(false);
-      return;
-    }
+  //   const nameValidation = validateName(formData.name);
+  //   if (!nameValidation.valid) {
+  //     setMessage({ type: "error", text: nameValidation.message ?? "Name is required." });
+  //     setIsLoading(false);
+  //     return;
+  //   }
 
-    const emailValidation = validateEmail(formData.email);
-    if (!emailValidation.valid) {
-      setMessage({ type: "error", text: emailValidation.message ?? "Please provide a valid email address." });
-      setIsLoading(false);
-      return;
-    }
+  //   const emailValidation = validateEmail(formData.email);
+  //   if (!emailValidation.valid) {
+  //     setMessage({ type: "error", text: emailValidation.message ?? "Please provide a valid email address." });
+  //     setIsLoading(false);
+  //     return;
+  //   }
 
-    const phoneValidation = validatePhone(formData.phone);
-    if (!phoneValidation.valid) {
-      setMessage({ type: "error", text: phoneValidation.message ?? "Please provide a valid phone number." });
-      setIsLoading(false);
-      return;
-    }
+  //   const phoneValidation = validatePhone(formData.phone);
+  //   if (!phoneValidation.valid) {
+  //     setMessage({ type: "error", text: phoneValidation.message ?? "Please provide a valid phone number." });
+  //     setIsLoading(false);
+  //     return;
+  //   }
 
-    if (formData.botField?.trim()) {
-      setMessage({ type: "error", text: "Spam detected. Submission rejected." });
-      setIsLoading(false);
-      return;
-    }
+  //   if (formData.botField?.trim()) {
+  //     setMessage({ type: "error", text: "Spam detected. Submission rejected." });
+  //     setIsLoading(false);
+  //     return;
+  //   }
 
-    try {
-      const token = await executeCaptcha();
-      const payload = { ...formData, captchaToken: token };
+  //   try {
+  //     const token = await executeCaptcha();
+  //     const payload = { ...formData, captchaToken: token };
 
-      const response = await fetch("/api/register", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(payload),
-      });
+  //     const response = await fetch("/api/register", {
+  //       method: "POST",
+  //       headers: {
+  //         "Content-Type": "application/json",
+  //       },
+  //       body: JSON.stringify(payload),
+  //     });
 
-      const data = await response.json();
+  //     const data = await response.json();
 
-      if (data.success) {
-        setFormData({ name: "", email: "", phone: "", botField: "", captchaToken: "" });
-        router.push("/select-song");
-      } else {
-        setMessage({ type: "error", text: data.message });
-      }
-    } catch (error) {
-      setMessage({
-        type: "error",
-        text: "An unexpected error occurred. Please try again.",
-      });
-    } finally {
-      setIsLoading(false);
-    }
-  };
+  //     if (data.success) {
+  //       setFormData({ name: "", email: "", phone: "", botField: "", captchaToken: "" });
+  //       router.push("/select-song");
+  //     } else {
+  //       setMessage({ type: "error", text: data.message });
+  //     }
+  //   } catch (error) {
+  //     setMessage({
+  //       type: "error",
+  //       text: "An unexpected error occurred. Please try again.",
+  //     });
+  //   } finally {
+  //     setIsLoading(false);
+  //   }
+  // };
+  
   return (
     <main className="relative min-h-screen overflow-x-hidden text-white">
       <Navbar />
@@ -243,7 +245,8 @@ export default function HomePage() {
         <h2 className="text-center text-3xl font-bold text-white">Register</h2>
         <p className="mx-auto mt-2 max-w-xl text-center text-gray-300">Reserve your place at Worship Confluence 2026. This is a free ticketing experience.</p>
 
-        <motion.form
+        <RegistrationForm />
+        {/* <motion.form
           onSubmit={handleSubmit}
           whileInView={{ opacity: 1, y: 0 }}
           initial={{ opacity: 0, y: 12 }}
@@ -337,7 +340,7 @@ export default function HomePage() {
               "Submit Registration"
             )}
           </button>
-        </motion.form>
+        </motion.form> */}
       </section>
 
       <section id="media" aria-labelledby="media-heading" className="border-t border-white/10 bg-black/40 py-20">

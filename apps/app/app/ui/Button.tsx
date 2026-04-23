@@ -1,5 +1,5 @@
 import { ReactNode, ButtonHTMLAttributes } from 'react';
-import { cn } from '@/app/lib/utils';
+import { cn } from '../lib/utils';
 
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   children: ReactNode;
