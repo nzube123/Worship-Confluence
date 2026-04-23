@@ -4,12 +4,15 @@
     "check-types": "tsc --noEmit"
   },
   "devDependencies": {
+    "prettier": "^3.8.3",
     "turbo": "^2.9.6"
   },
-  
   "workspaces": [
     "apps/*",
     "packages/*"
   ],
-  "packageManager": "npm@8.5.0"
+  "packageManager": "npm@8.5.0",
+  "dependencies": {
+    "react-hook-form": "^7.73.1"
+  }
 }
