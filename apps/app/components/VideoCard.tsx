@@ -4,7 +4,6 @@ import { useState } from "react";
 import Image from "next/image";
 import { FaPlay } from "react-icons/fa";
 import { cn } from "../app/lib/utils";
-// import { cn } from "@/app/lib/utils";
 
 interface VideoCardProps {
   videoId: string;
