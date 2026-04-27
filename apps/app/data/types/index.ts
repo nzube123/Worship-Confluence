@@ -28,3 +28,12 @@ export interface ProgrammeDay {
   choirSongs: Song[];
   individualSongs: Song[];
 }
+
+export interface FormData {
+  fullName?: string;
+  choirName?: string;
+  phoneNumber: string;
+  email: string;
+  songSelected: string;
+  day: string;
+}

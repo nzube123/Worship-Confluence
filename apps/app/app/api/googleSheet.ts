@@ -8,6 +8,7 @@ type SpreadSheetSchema = {
   phoneNumber: string;
   email: string;
   songSelected: string;
+  day: string;
 };
 
 const auth = new google.auth.GoogleAuth({
@@ -28,9 +29,8 @@ export async function appendItem(data: SpreadSheetSchema) {
       data.phoneNumber || "",
       data.email || "", 
       data.songSelected || "",
+      data.day || ""
     ];
-
-    console.log("Attempting to append row:", rowValues);
 
     const res = await sheets.spreadsheets.values.append({
       spreadsheetId: process.env.GOOGLE_SHEET_ID,
@@ -41,6 +41,8 @@ export async function appendItem(data: SpreadSheetSchema) {
         values: [rowValues],
       },
     });
+
+
     return { success: true };
   } catch (error: any) {
     return { success: false, error: error.message };

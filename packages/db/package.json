@@ -1,34 +1,26 @@
 {
   "name": "db",
   "version": "1.0.0",
-  "private": true,
-  "description": "Docker and Drizzle Setup",
-  "license": "ISC",
-  "author": "",
   "type": "module",
-  "main": "index.js",
   "scripts": {
     "dev": "docker compose up --build",
-    "build": "tsc -p tsconfig.json",
-    "typecheck": "tsc --noEmit",
-    "lint": "eslint .",
-    "db:generate": "drizzle generate",
-    "db:push": "DATABASE_URL=postgresql://postgres:postgres@localhost:5432/worship_confluence drizzle-kit push",
-    "db:studio": "drizzle-kit studio",
-    "db:up": "docker compose up -d",
-    "db:down": "docker compose down",
-    "wait-for-db": "while ! nc -z localhost 5432; do sleep 1; done",
-    "wait-db-for": "wait-port localhost:5432",
-    "seed": "npn wait-db-for && DATABASE_URL=postgres://postgres:postgres@localhost:5432/worship_confluence npm run src/seedDb.ts"
+    "db:push": "cross-env DATABASE_URL=postgresql://postgres:postgres@localhost:5432/worship_confluence npx drizzle-kit push",
+    "db:generate": "npx drizzle-kit generate",
+    "db:studio": "npx drizzle-kit studio",
+    "db:seed": "tsx src/seedDb.ts"
+  },
+  "exports": {
+    ".": "./src/index.ts",
+    "./schema": "./src/schema/index.ts"
   },
   "dependencies": {
-    "dotenv": "^17.4.2",
     "drizzle-orm": "^0.45.2",
     "pg": "^8.20.0"
   },
   "devDependencies": {
-    "@types/node": "^20.19.39",
+    "@types/node": "^20.0.0",
     "@types/pg": "^8.20.0",
+    "cross-env": "^10.1.0",
     "drizzle-kit": "^0.31.10",
     "tsx": "^4.21.0"
   }

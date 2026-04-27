@@ -1,7 +1,7 @@
 services:
   db:
-    image: postgres:15
-    container_name: default_db
+    image: postgres:16-alpine
+    container_name: confluence-registration-portal
     restart: always
     environment:
       - POSTGRES_USER=postgres
@@ -11,3 +11,6 @@ services:
         - "5432:5432"
     volumes:
       - ./postgres_data:/var/lib/postgresql/data
+
+volumes: 
+  postgres_data:
