@@ -1,7 +1,7 @@
 import "dotenv/config"; // Must be at the VERY top
 import express from "express";
 import cors from "cors";
-import { getRegisterRoutes } from "./register/routes";
+import { getRegisterRoutes } from "./register/routes.js";
 
 const app = express();
 const PORT = 3001;
