@@ -9,7 +9,7 @@ function getPool() {
   if (pool) return pool;
 
   const connectionString =
-    "postgres://postgres:postgres@localhost:5432/worship_confluence";
+    "postgresql://neondb_owner:npg_2u8irqWHnpxd@ep-rapid-cell-amugpo8y-pooler.c-5.us-east-1.aws.neon.tech/neondb?sslmode=require";
   if (!connectionString) {
     throw new Error(
       "DATABASE_URL is required to initialize the database client"

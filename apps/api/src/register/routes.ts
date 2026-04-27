@@ -1,6 +1,6 @@
 import { Router } from "express"
-import { indivualRegistration } from "./indivRefistration";
-import { choirRegistration } from "./choirRegistration";
+import { indivualRegistration } from "./indivRefistration.js";
+import { choirRegistration } from "./choirRegistration.js";
 
 export const getRegisterRoutes = () => {
     const router = Router();
