@@ -4,10 +4,11 @@
   "type": "module",
   "scripts": {
     "dev": "docker compose up --build",
+    "build": "tsc",
     "db:push": "cross-env DATABASE_URL=postgresql://neondb_owner:npg_2u8irqWHnpxd@ep-rapid-cell-amugpo8y-pooler.c-5.us-east-1.aws.neon.tech/neondb?sslmode=require npx drizzle-kit push",
     "db:generate": "npx drizzle-kit generate",
     "db:studio": "npx drizzle-kit studio",
-    "db:seed": "tsx src/seedDb.ts"
+    "db:seed": "ts  0OJ )()(x src/seedDb.ts"
   },
   "exports": {
     ".": "./src/index.ts",

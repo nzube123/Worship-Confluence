@@ -1,6 +1,7 @@
 {
   "scripts": {
     "dev": "turbo dev",
+    "build": "npm run build --workspaces",
     "check-types": "tsc --noEmit"
   },
   "devDependencies": {
