@@ -1,7 +1,7 @@
 "use client";
 
 import { useMemo } from "react";
-import { formatYoutubeEmbedUrl } from "@/data/youtube";
+import { formatYoutubeEmbedUrl } from "../../data/youtube";
 
 interface YouTubePlayerProps {
   youtubeId?: string;
