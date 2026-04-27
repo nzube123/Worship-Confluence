@@ -1,37 +1,20 @@
 {
   "compilerOptions": {
-    "baseUrl": "./",
+    "outDir": "./dist",
+    "baseUrl": ".",
     "paths": {
-      "db": ["../../packages/db"],
+      "db": ["../../packages/db/src/index.ts"], // Point directly to the source entry
       "db/*": ["../../packages/db/*"],
       "@/*": ["./src/*"]
     },
-    "target": "ES2017",
-    "lib": ["dom", "dom.iterable", "esnext"],
+    "module": "NodeNext", // Supports modern resolution
+    "moduleResolution": "NodeNext", // Helps find types in monorepo packages
+    "target": "ES2020",
     "allowJs": true,
     "skipLibCheck": true,
-    "strict": false,
-    "noEmit": true,
-    "incremental": true,
-    "module": "esnext",
     "esModuleInterop": true,
-    "moduleResolution": "bundler",
-    "resolveJsonModule": true,
-    "isolatedModules": true,
-    "jsx": "react-jsx",
-    "plugins": [
-      {
-        "name": "express"
-      }
-    ]
+    "noEmit": false
   },
-  "include": [
-    "next-env.d.ts",
-    ".next/types/**/*.ts",
-    ".next/dev/types/**/*.ts",
-    "**/*.mts",
-    "**/*.ts",
-    "**/*.tsx"
-  ],
-  "exclude": ["node_modules"]
+  "include": ["src/**/*"],
+  "exclude": ["node_modules", "dist"]
 }
