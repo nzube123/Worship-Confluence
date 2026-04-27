@@ -2,7 +2,8 @@
   "compilerOptions": {
     "baseUrl": "./",
     "paths": {
-      "db": ["./src/db/index.ts"],
+      "db": ["../../packages/db"],
+      "db/*": ["../../packages/db/*"],
       "@/*": ["./src/*"]
     },
     "target": "ES2017",
@@ -32,7 +33,5 @@
     "**/*.ts",
     "**/*.tsx"
   ],
-  "exclude": [
-    "node_modules"
-  ]
+  "exclude": ["node_modules"]
 }
