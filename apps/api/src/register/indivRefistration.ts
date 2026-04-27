@@ -1,4 +1,4 @@
-import { db, individualDb } from "db";
+import { db, individualDb } from "../../../../packages/db/src/index.js";
 import { Request, Response } from "express";
 
 interface IndividualSchema {

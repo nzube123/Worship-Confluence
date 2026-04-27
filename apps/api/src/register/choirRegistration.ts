@@ -1,4 +1,4 @@
-import { choirDb, db, } from "db";
+import { choirDb, db } from "../../../../packages/db/src/index.js";
 import { Request, Response } from "express";
 
 interface ChoirSchema {

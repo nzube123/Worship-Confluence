@@ -1,9 +1,9 @@
 import { sql } from "drizzle-orm";
 
-import { db } from "./db";
+import { db } from "./db.js";
 import { execSync } from "child_process";
 import path from "path";
-import { individualDb } from "./schema";
+import { individualDb } from "./schema/index.js";
 
 const seedIndiv = [
   {
