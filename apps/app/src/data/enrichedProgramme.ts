@@ -1,5 +1,5 @@
-import { programmeDays } from "@/data/programmeSongs";
-import { enrichSongs } from "@/src/utils/transformSongs";
+import { programmeDays } from "../../data/programmeSongs";
+import { enrichSongs } from "../utils/transformSongs";
 
 export async function getEnrichedProgramme() {
   return enrichSongs(programmeDays);

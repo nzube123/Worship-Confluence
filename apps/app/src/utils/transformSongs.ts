@@ -1,7 +1,10 @@
-import { fetchYouTubeId } from "@/src/services/youtubeService";
+import { fetchYouTubeId } from "../../data/youtube";
 
 export function parseSong(input: string) {
-  const cleaned = input.replace(/^\s*\d+[\.)]?\s*/g, "").replace(/\s+/g, " ").trim();
+  const cleaned = input
+    .replace(/^\s*\d+[\.)]?\s*/g, "")
+    .replace(/\s+/g, " ")
+    .trim();
   const parts = cleaned.split(/\s*\/\s*/g);
 
   return parts.map((part) => {

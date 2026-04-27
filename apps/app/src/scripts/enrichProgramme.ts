@@ -1,5 +1,5 @@
-import { programmeDays } from "@/data/programmeSongs";
-import { enrichSongs } from "@/src/utils/transformSongs";
+import { programmeDays } from "../../data/programmeSongs";
+import { enrichSongs } from "../utils/transformSongs";
 
 async function main() {
   const enrichedProgramme = await enrichSongs(programmeDays);

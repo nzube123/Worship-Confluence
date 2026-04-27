@@ -1,6 +1,3 @@
-// import type { ProgrammeDayRaw, ProgrammeDay, Song } from "@/data/types";
-// import { parseSongString } from "@/data/youtube";
-
 import { ProgrammeDayRaw, ProgrammeDay, Song } from "./types";
 import { parseSongString } from "./youtube";
 
